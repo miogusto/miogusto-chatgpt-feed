@@ -134,7 +134,7 @@ def main():
         cat = re.sub(r"\s*>\s*", " > ", f.get("product_type", ""))
 
         w.writerow([
-            item_id, title, plain(f.get("description", "")), f["link"],
+            item_id, title, plain(f.get("description", "")) or title, f["link"],
             f.get("brand") or "MIO GUSTO", SELLER, f["image_link"], availability,
             price, sale, group if has_var else "", "true" if has_var else "",
             json.dumps(vd, ensure_ascii=False) if has_var else "",
